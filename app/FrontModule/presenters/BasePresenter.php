@@ -528,9 +528,9 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
             $this->terminate();
         }
         
-        public function handleGetDamage($area,$monthFrom,$yearFrom,$monthTo,$yearTo,$filters)
+        public function handleGetDamage($area,$monthFrom,$yearFrom,$monthTo,$yearTo)
         {
-            $data = $this->models->DamageData->findTotalFromArea($area,$monthFrom,$yearFrom,$monthTo,$yearTo,$filters)->fetchSingle();
+            $data = $this->models->DamageData->findTotalFromArea($area,$monthFrom,$yearFrom,$monthTo,$yearTo)->fetchSingle();
             
             echo json_encode($data);
             
