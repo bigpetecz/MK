@@ -1,0 +1,502 @@
+{**
+ * My Application layout template.
+ *
+ * @copyright  Copyright (c) 2010 John Doe
+ * @package    MyApplication
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>MAPAKRIMINALITY.CZ</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <link rel="stylesheet" href="{$basePath}/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="{$basePath}/css/jquery-ui-1.8.18.custom.css">
+
+  <link rel="stylesheet" href="{$basePath}/css/contactForm.css">
+  <link rel="stylesheet" href="{$basePath}/css/boilerplate.css">
+  <link rel="stylesheet" href="{$basePath}/css/fontFace.css">
+  <link rel="stylesheet" href="{$basePath}/css/main.css">
+  <link rel="stylesheet" href="{$basePath}/css/chosen.css">
+  <link rel="stylesheet" href="{$basePath}/css/homepage.css">
+  <link rel="stylesheet" href="{$basePath}/css/autorizace.css">
+  <link rel="stylesheet" href="{$basePath}/css/porovnani.css">
+  <link rel="stylesheet" href="{$basePath}/css/tabulky.css">
+  <link rel="stylesheet" href="{$basePath}/css/kontakty.css">
+  <link rel="stylesheet" href="{$basePath}/css/oAplikaci.css">
+  <link rel="stylesheet" href="{$basePath}/css/map.css">
+  <link rel="stylesheet" href="{$basePath}/css/popups.css">
+
+ <!-- <link rel="stylesheet" href="{$basePath}/css/styles.css"> -->
+
+  <script src="{$basePath}/js/netteForms.js"></script>
+  <script src="{$basePath}/js/libs/jquery.js"></script>
+  <script src="{$basePath}/js/libs/jshashset.js" type="text/javascript"></script>  
+  <script src="{$basePath}/js/libs/jshashtable.js" type="text/javascript"></script>  
+  <script src="{$basePath}/js/libs/jquery.numberformatter-1.2.3.min.js"></script>
+  <script src="{$basePath}/js/Main.js" type="text/javascript"></script>
+  <scriloadDapt id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=272071086197256"></script>
+  
+{block head}{/block}
+
+  
+    <script type="text/javascript">
+        
+      var templateDir = {$basePath} + "/templates";
+      var appKey = "AIzaSyD6OPC_IU0jGYhX0lUzgMsfn-D1yQvJfxY";
+      
+      function getData(table) {
+          // Builds a Fusion Tables SQL query and hands the result to dataHandler()
+
+          var queryUrlHead = 'http://www.google.com/fusiontables/api/query?sql=';
+          var queryUrlTail = '&jsonCallback=?'; // ? could be a function name
+          
+          // write your SQL as normal, then encode it
+          var query = "SELECT Name, TotalDamage,Acreage,Population,Officers,Rank,ContactFormContent,ContactFormEmail FROM " + table + " WHERE ID=1";
+          var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
+
+          var jqxhr = $.get(queryurl, dataHandler, "jsonp");
+      }
+
+      function dataHandler(d) {
+        var data = d.table.rows;
+        var acreage = data[0][2];
+
+        var temp = queryCrimes(1);
+        var total = queryLocal(1);
+
+        var d = {};
+        var solv = 0;
+        var com = 0;
+        var index = total[2];
+        for (var i = 0; i < Application.filters.length; i++) {  
+            d[Application.filters[i]] = temp[Application.filters[i]];  
+            solv += temp[Application.filters[i]].solv.val;
+            com += temp[Application.filters[i]].com.val;
+        } 
+        
+        //append necessary data from elsewhere
+        data[0].com = com;
+        data[0].index = index;
+
+        Homepage.update( data[0] );
+
+        $('.contactInfo').html(data[0][6]);
+        $('#frmcontactForm-emailTo').val(data[0][7]);
+      }
+
+
+      //getData(fusionTable);
+
+function queryGoogle(query) {
+        var queryUrlHead = 'https://www.googleapis.com/fusiontables/v1/query?sql=';
+        var queryurl = encodeURI(queryUrlHead + query);
+        var data;
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            url: queryurl,
+            data: { key: appKey},
+            success: function(d) {
+                data = d;
+            }
+        });
+
+        return data;
+}
+
+function queryGoogleColumns(table,id) {
+        var queryUrlHead = 'https://www.googleapis.com/fusiontables/v1/tables/' + table +'/columns/';
+        var queryurl = encodeURI(queryUrlHead);
+        var data;
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            url: queryurl,
+            data: { key: appKey},
+            success: function(d) {
+                data = d;
+            }
+        });
+
+        return data;
+}
+
+function queryLocal(area, crime, filters ) {
+        var queryurl = {link loadData!};
+        var data;
+        var isDistrict = ( Application.zoomLevel == 2 ) ? true : false;
+
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { area: area, crime: crime, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes:Application.filtersString(), isDistrict: isDistrict },
+            url: queryurl,
+            success: function(d) {
+              data = d;
+            }
+        });
+
+        return data;
+}
+
+function queryCrimes(area, filtersString )
+{
+        var queryurl = {link loadData!};
+        var data;
+        var isDistrict = ( Application.zoomLevel == 2 ) ? true : false;
+        log("queryCrimes is district");
+        log( isDistrict ); 
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { area: area, crime: 1, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, filters:Application.filtersString(),isDistrict: isDistrict },
+            url: queryurl,
+            success: function(d) {
+                log("queryCrimes success");
+                log( d );
+                data = d;
+            },
+            error: function(xhr) {
+              log("queryCrimes error");
+              log( xhr );
+            }
+        });
+
+        //temporary check for missing data with crime type 2
+        if( !data[2] ) {
+           data[2] = [ 0,0,"BR",0];
+        }
+
+        var temp = 
+        {                            
+            name: data[1][2],
+            violent:{ name:"Násilné činy", index: data[1][3], solv:{ col:"#def5af", val:parseInt(data[1][1]) }, com:{ col:"#d2f193", val:parseInt(data[1][0]) }},
+            moral:{ name:"Mravnostní činy", index: data[2][3], solv:{ col:"#c6e2a5", val:parseInt(data[2][1]) }, com:{ col:"#b7dc8e", val:parseInt(data[2][0]) }},
+            burglary:{ name:"Krádeže vloupáním", index: data[3][3], solv:{ col:"#b3d0a2", val:parseInt(data[3][1]) }, com:{ col:"#9cc384", val:parseInt(data[3][0]) }},
+            theft:{ name:"Krádeže prosté", index: data[4][3], solv:{ col:"#9fbd9b", val:parseInt(data[4][1]) }, com:{ col:"#89b084", val:parseInt(data[4][0]) }},
+            property:{ name:"Ostatní majetkové činy", index: data[5][3], solv:{ col:"#8db09a", val:parseInt(data[5][1]) }, com:{ col:"#719d82", val:parseInt(data[5][0]) }},
+            other:{ name:"Ostatní činy", index: data[6][3], solv:{ col:"#8db09a", val:parseInt(data[6][1]) }, com:{ col:"#5b867c", val:parseInt(data[6][0]) }},
+            rest:{ name:"Zbývající činy", index: data[7][3], solv:{ col:"#678d90", val:parseInt(data[7][1]) }, com:{ col:"#446e7a", val:parseInt(data[7][0]) }},
+            economic:{ name:"Hospodářské činy", index: data[8][3], solv:{ col:"#537e8f", val:parseInt(data[8][1]) }, com:{ col:"#2c5a71", val:parseInt(data[8][0]) }},
+            military:{ name:"Vojenské činy", index: data[9][3], solv:{ col:"#406b8b", val:parseInt(data[9][1]) }, com:{ col:"#12466d", val:parseInt(data[9][0]) }}
+        };
+        return temp;
+}
+
+function loadTimeline()
+{
+    var queryurl = {link loadTimeline!};
+    var data;
+    $.ajax({
+        async: false,
+        type: 'GET',
+        data: { crimeTypes:Application.filtersString() },
+        dataType: 'json',
+        url: queryurl,
+        success: function(d) {
+            data = d;
+        }
+    });
+    return data;
+}
+
+
+function loadMapStyles( zoomLevel )
+{
+    //var queryurl = {link loadMapStyles!};
+    var queryurl = {link loadMapValuesStyles!};
+    
+    var data;
+    $.ajax({
+        async: false,
+        type: 'GET',
+        dataType: 'json',
+        url: queryurl,
+        data: { zoomLevel: zoomLevel, table: fusionTable, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes:Application.filtersString() },
+        success: function(d) {
+            data = d;
+        }
+    });
+
+    return data;
+}
+
+function getNamesAndIndexes( zoomLevel ) {
+
+      var queryurl = {link findNamesIndexesForIdsRange!};
+      var data;
+      $.ajax( {
+          async: false,
+          type: 'GET',
+          dataType: 'json',
+          data: { zoomLevel: zoomLevel, area: area, crime: 1, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes: Application.filtersString()  },
+          url: queryurl,
+          success: function(d) {
+              data = d;
+          },
+          error: function() {
+            log("error");
+          }
+      });
+      
+      return data;
+  }
+  
+  function getDamage()
+  {
+    var queryurl = {link loadMapValuesStyles!};
+    var data;
+    $.ajax({
+        async: false,
+        type: 'GET',
+        dataType: 'json',
+        url: queryurl,
+        data: { table: fusionTable, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes: Application.filtersString },
+        success: function(d) {
+            data = d;
+        }
+    });
+
+    return data;
+  }
+  
+function storeDate(yearFrom,monthFrom,yearTo,monthTo) {
+        var queryurl = {plink storeDate!};
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { yearFrom: yearFrom, monthFrom: monthFrom, yearTo: yearTo, monthTo: monthTo},
+            url: queryurl,
+            error: function() {
+              log("error");
+            }
+        });
+
+        return null;
+}
+
+function storeTable(table) {
+        var queryurl = {plink storeTable!};
+    $.ajax({
+        async: false,
+        type: 'GET',
+        dataType: 'json',
+        url: queryurl,
+        data: { table: table },
+        success: function(d) {
+            data = d;
+        }
+    });
+
+    return data;
+}
+
+function storeArea(area) {
+        var queryurl = {plink storeArea!};
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { area: area},
+            url: queryurl,
+            error: function() {
+              log("error");
+            }
+        });
+
+        return null;
+}
+
+function storeFilters(filters) {
+        var queryurl = {plink storeFilters!};
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { filters: filters},
+            url: queryurl,
+            error: function() {
+              log("error");
+            }
+        });
+
+        return null;
+}
+
+function getRankingsForCrimeType( zoomLevel, crimeTypeId ) {
+        var queryurl = {link getRankingsForCrimeType!};
+
+        $.ajax({
+            async: false,
+            type: 'GET',
+            dataType: 'json',
+            data: { zoomLevel: zoomLevel, crimeTypeId: crimeTypeId,  yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month },
+            url: queryurl,
+            success: function(d) {
+              data = d;
+            },
+            error: function() {
+              log("getRankingsForCrimeType error");
+            }
+        });
+
+        return data;
+}
+  </script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=272071086197256";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header class="mainBar">
+      <a href="{if $presenter->getName() != 'Mapa'}{plink Mapa:#mapa}{else}#{/if}" class="logo"><img src="{$basePath}/images/logo.png" alt="logo" class="logo"/></a>
+      <h2>Projekt Otevřené společnosti</h2>
+      <div class="fb-like" data-href="http://www.mapakriminality.cz" data-layout="button_count" data-width="350"></div>
+      <nav id="pagesNav">
+        <ul>
+          <li><a id="map" href="{if $presenter->getName() != 'Mapa'}{plink Mapa:#mapa}{else}#{/if}" alt="homepage"{if $presenter->name == 'Front:Mapa'} class="active"{/if}><span>MAPA</span></a></li>
+          <li><a id="compare" href="{if $presenter->getName() != 'Mapa'}{plink Mapa:#porovnani}{else}#{/if}" alt="porovnani"{if $presenter->name == 'Front:Porovnani'} class="active"{/if}><span>POROVNÁNÍ</span></a></li>
+          <li><a id="table" href="{if $presenter->getName() != 'Mapa'}{plink Mapa:#tabulky}{else}#{/if}" alt="tabulky"{if $presenter->name == 'Front:Tabulky'} class="active"{/if}><span>TABULKY</span></a></li>
+         <!-- <li><a n:href="Kontakty:" alt="kontakty"{if $presenter->name == 'Front:Kontakty'} class="active"{/if}><span>KONTAKTY</span></a></li>-->
+          <li><a n:href="OAplikaci:" alt="oAplikaci"{if $presenter->name == 'Front:OAplikaci'} class="active"{/if}><span>O APLIKACI</span></a></li>
+          <span>|</span>
+          <li>{if $user->isLoggedIn()}<a href="#" id="userinfo"><span>{var $data = $user->getIdentity()->getData();}{$data['email']}</spam></a>{else}<a id="login" href="#"><span>PŘIHLÁŠENÍ</span></a>{/if}</li>
+        </ul>
+      </nav>
+  </header>
+  <div id="main" role="main">
+	<div n:foreach="$flashes as $flash" class="popup check">
+		<a href="#" onClick="$('.popup').hide();" class="close"></a>
+		<img src="images/popup-{$flash->type}.png" alt="varování" />
+		<p>{$flash->message}</p>
+	</div>
+        
+    
+     
+<div class="authorization">
+		<section class="logIn">
+			<div class="top"></div>
+			<div class="content">
+				<header>
+					<h1>PŘIHLÁŠENÍ DO APLIKACE</h1>
+				</header>
+				{form signInForm}
+					{input email}
+					{input password}
+					<a href="#" id="newUser" title="nový uživatel">Nový uživatel</a>
+					<a href="#" id="forgetPass" title="nevím heslo" class="lostPass">Nevím heslo</a>
+					{input login}
+				{/form}
+			</div>
+			<div class="forgetPasContent">
+				{form forgetPassForm}
+					{label email /}
+					{input email}
+					{input submit}
+				{/form}
+			</div>
+		</section>
+                <section class="registration">
+			<div class="top"></div>
+			<div class="content">
+                            <a href="#" class="close-registration">x</a>
+				<header>
+					<h1>NOVÝ UŽIVATEL</h1>
+				</header>
+
+                                {form registrationForm}
+					{input email}
+					{input password}
+                            {input pswdCheck}
+                                        <div class="selectWrapper">
+					{input sector}
+                                        </div>
+					{input newsletter} <label for="frmregistrationForm-newsletter">Informujte mě <br /> o aktualizacích</label>
+                                        {input register}                                        
+				{/form}
+				</form>
+			</div>
+		</section>
+                <section class="userInfo">
+			<div class="top"></div>
+			<div class="content">
+				<header>
+					<h1>UŽIVATELSKÉ JMÉNO</h1>
+					<a n:href="Sign:out" title="odhlásit">odhlásit</a>
+					<div class="clearfix"></div>
+				</header>
+				{form userInfoForm}
+                                    <fieldset>
+                                        {label email /}
+                                        {input email}
+                                    </fieldset>
+                                    <fieldset>
+                                        {label password /}
+					{input password}
+                                    </fieldset>
+                                    <fieldset>
+                                        {label checkPassword /}
+                                        {input checkPassword}
+                                    </fieldset>
+                                    <fieldset>
+                                        {label sector /}
+                                        <div class="selectWrapper">
+						{input sector}
+                                        </div>
+                                    </fieldset>
+                                    <hr />
+                                    {input newsletter} <label for="frmuserInfoForm-newsletter">Informujte mě o<br /> aktualizacích</label>
+                                    {input save}
+                                    <div class="clearfix"></div>
+				{/form}
+			</div>
+		</section>
+</div>
+	{include #content}
+  </div>
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){ var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+</body>
+</html>
