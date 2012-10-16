@@ -31,12 +31,12 @@ class MapaPresenter extends BasePresenter
                 
             $session = $this->session->getSection('map');
             
-         /*   unset($session->area);
+            unset($session->area);
             unset($session->table);
             unset($session->filters);
             unset($session->dateFrom);
             unset($session->dateTo);
-           */ 
+            
             
             if(isset($session->area))
             {
