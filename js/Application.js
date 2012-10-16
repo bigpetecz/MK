@@ -84,7 +84,6 @@ var Application = {
 		Application.selectedUnit = id;
 
       	function complete( data ) {
-      	   	
       	   	Homepage.update( data );
       	   	if( Homepage.isDisplayed() && dataFromMap ) MapDetailOverlay.display( data.graphData, true );
 

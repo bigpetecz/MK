@@ -149,12 +149,16 @@ var DataProxy = {
 	        data.com = com;
 	        data.filterData = temp;
 	       	data.graphData = graphData;
+                
+                var damage = getDamage(area);
+                data.damage = damage;
 
 	       	if( dataFromMap ) {
 	        	data.name = dataFromMap[ "Name" ].value;
 		        data.acreage = (dataFromMap[ "Acreage" ]) ? dataFromMap[ "Acreage" ].value : 0;
 		        data.population = (dataFromMap[ "Population" ]) ? dataFromMap[ "Population" ].value  : 0;
-	   	        data.damage = (dataFromMap[ "TotalDamage" ]) ? dataFromMap[ "TotalDamage" ].value  : 0;
+
+                        
 
 		        //data.damage = loadDamage();
 	            if(dataFromMap["Officers"] && dataFromMap["Officers"].value == null) {
@@ -178,7 +182,6 @@ var DataProxy = {
 
 	        		var row = result.table.rows[0];
 	        		data.name = row[ 0 ];
-		        	data.damage = row[ 1 ];
 		        	data.officers = row[ 4 ];
 		        	data.acreage = row[ 2 ];
 		        	data.population = row[ 3 ];

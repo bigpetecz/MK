@@ -71,7 +71,7 @@ PorovnaniTable.prototype.updateStaticValues = function( damage, officers ){
 	//update static values
    	var $staticTableValues = this.element.find(".staticData").find(".total");
    	var $tds = $staticTableValues.find( "td" );
-   	$tds.eq(0).html( damage + " mil. Kč" );
+   	$tds.eq(0).html( damage + " Kč" );
   	$tds.eq(1).html( officers );
 }
 

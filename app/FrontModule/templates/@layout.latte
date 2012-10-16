@@ -268,16 +268,16 @@ function getNamesAndIndexes( zoomLevel ) {
       return data;
   }
   
-  function getDamage()
+  function getDamage(area)
   {
-    var queryurl = {link loadMapValuesStyles!};
+    var queryurl = {link getDamage!};
     var data;
     $.ajax({
         async: false,
         type: 'GET',
         dataType: 'json',
         url: queryurl,
-        data: { table: fusionTable, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes: Application.filtersString },
+        data: { area: area, yearFrom: dateFrom.year, monthFrom: dateFrom.month, yearTo: dateTo.year, monthTo: dateTo.month, crimeTypes: Application.filtersString },
         success: function(d) {
             data = d;
         }

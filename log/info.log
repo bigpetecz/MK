@@ -6221,3 +6221,1027 @@
             JOIN TimeRange ON TimeRange.Id = FK_Time_Range
             JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
             WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/mapakriminality.cz/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-49] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-50] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-50] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-50] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-21-50] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-04] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-25-54] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-26-20] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-27-56] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 0 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 0 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 1, sum: 258353, pop: 10582469, i: 244.133009036  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-28-01] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-32-19] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-33-26] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-36] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-37] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-34-37] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-09] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-10] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-10] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-26] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-27] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-36-27] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-15] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-16] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-16] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-16] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-37-16] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-41-21] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-43-52] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-52] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 4) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-52] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-52] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 4) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 2, sum: 33515, pop: 1169106, i: 286.672038293  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 4, sum: 3438, pop: 625267, i: 54.9845106171  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 8, sum: 9300, pop: 1127718, i: 82.467425367  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 15, sum: 1871, pop: 304343, i: 61.4766891304  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 7, sum: 2811, pop: 550724, i: 51.0419012064  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 14, sum: 3675, pop: 428184, i: 85.8275881397  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 9, sum: 13990, pop: 1269467, i: 110.203731172  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 10, sum: 3907, pop: 639369, i: 61.1071228039  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 13, sum: 2412, pop: 508281, i: 47.4540657628  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 5, sum: 3556, pop: 550688, i: 64.5737695392  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 3, sum: 10712, pop: 1122473, i: 95.4321395704  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 6, sum: 7444, pop: 820219, i: 90.7562492456  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 12, sum: 1935, pop: 519211, i: 37.2680856145  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-43-54] name: 11, sum: 1850, pop: 595010, i: 31.0919144216  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-47-47] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-47] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-48] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-48] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-48] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-47-48] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-48-07] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-07] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 3) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-07] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-07] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 3) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 2, sum: 8176, pop: 1169106, i: 69.9337784598  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 4, sum: 2279, pop: 625267, i: 36.448429231  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 8, sum: 4355, pop: 1127718, i: 38.617810481  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 15, sum: 1218, pop: 304343, i: 40.0206346129  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 7, sum: 1644, pop: 550724, i: 29.8516135124  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 14, sum: 2233, pop: 428184, i: 52.1504773649  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 9, sum: 7065, pop: 1269467, i: 55.6532781081  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 10, sum: 2223, pop: 639369, i: 34.7686547205  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 13, sum: 1357, pop: 508281, i: 26.6978305307  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 5, sum: 2490, pop: 550688, i: 45.2161659597  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 3, sum: 6838, pop: 1122473, i: 60.9190599685  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 6, sum: 4988, pop: 820219, i: 60.8130267648  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 12, sum: 1489, pop: 519211, i: 28.6781289302  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-48-10] name: 11, sum: 1335, pop: 595010, i: 22.4365977042  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-49-34] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-34] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-34] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-34] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-35] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-49-59] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-49-59] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 3) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-49-59] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-49-59] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 3) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 2, sum: 8176, pop: 1169106, i: 69.9337784598  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 4, sum: 2279, pop: 625267, i: 36.448429231  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 8, sum: 4355, pop: 1127718, i: 38.617810481  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 15, sum: 1218, pop: 304343, i: 40.0206346129  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 7, sum: 1644, pop: 550724, i: 29.8516135124  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 14, sum: 2233, pop: 428184, i: 52.1504773649  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 9, sum: 7065, pop: 1269467, i: 55.6532781081  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 10, sum: 2223, pop: 639369, i: 34.7686547205  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 13, sum: 1357, pop: 508281, i: 26.6978305307  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 5, sum: 2490, pop: 550688, i: 45.2161659597  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 3, sum: 6838, pop: 1122473, i: 60.9190599685  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 6, sum: 4988, pop: 820219, i: 60.8130267648  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 12, sum: 1489, pop: 519211, i: 28.6781289302  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-50-02] name: 11, sum: 1335, pop: 595010, i: 22.4365977042  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=3
+[2012-10-16 16-51-30] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-30] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 2, sum: 61392, pop: 1169106, i: 525.11919364  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 4, sum: 11908, pop: 625267, i: 190.446641195  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 8, sum: 24518, pop: 1127718, i: 217.412509156  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 15, sum: 6499, pop: 304343, i: 213.541957594  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 7, sum: 8940, pop: 550724, i: 162.33176691  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 14, sum: 11037, pop: 428184, i: 257.763017768  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 9, sum: 34905, pop: 1269467, i: 274.957915409  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 10, sum: 11953, pop: 639369, i: 186.949945962  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 13, sum: 7609, pop: 508281, i: 149.700657707  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 5, sum: 10907, pop: 550688, i: 198.061334186  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 3, sum: 30575, pop: 1122473, i: 272.389625407  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 6, sum: 23301, pop: 820219, i: 284.082665727  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 12, sum: 7406, pop: 519211, i: 142.639504941  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] name: 11, sum: 7403, pop: 595010, i: 124.418077007  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >= 201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <= 201209 ) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11)
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-31] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9
+[2012-10-16 16-51-46] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-46] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 4) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-46] findNamesIndexesForIdsRange  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-46] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Name, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) AND FK_Crime_Lookup NOT IN(10,11) AND AreaLookup.Id > 1 AND AreaLookup.Id < 16 GROUP BY FK_Area_Lookup ORDER BY NAME  @  http://localhost/MK/?do=findNamesIndexesForIdsRange&zoomLevel=1&area=null&crime=1&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] findCrimesSumForAreaTimeAndType  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] SELECT SUM( Vykazovane_zjisteno_mesic ) as sum
+                FROM CrimeData 
+                JOIN AreaLookup ON FK_Area_Lookup = AreaLookup.Id 
+                JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+                WHERE ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) >=201110 ) 
+                AND ( CONCAT( YEAR, IF(Month < 10,0,""),Month ) <=201209 ) 
+                AND FK_Crime_Lookup IN ( 4) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                GROUP BY FK_Area_Lookup
+                ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] findIndexes  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] SELECT ROUND((SUM(Vykazovane_zjisteno_mesic)/(Population))*10000,0) AS i,AreaLookup.Id AS area, Population as pop
+            FROM CrimeData 
+            JOIN TimeRange ON TimeRange.Id = FK_Time_Range
+            JOIN AreaLookup ON AreaLookup.Id = FK_Area_Lookup
+            WHERE (CONCAT(Year,IF(Month < 10,0,""),Month) >=201110) 
+                AND (CONCAT(Year,IF(Month < 10,0,""),Month) <=201209) 
+                AND AreaLookup.Id > 1 AND AreaLookup.Id < 16
+                AND FK_Crime_Lookup NOT IN(10,11) GROUP BY FK_Area_Lookup
+            ORDER BY NAME  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 2, sum: 33515, pop: 1169106, i: 286.672038293  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 4, sum: 3438, pop: 625267, i: 54.9845106171  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 8, sum: 9300, pop: 1127718, i: 82.467425367  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 15, sum: 1871, pop: 304343, i: 61.4766891304  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 7, sum: 2811, pop: 550724, i: 51.0419012064  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 14, sum: 3675, pop: 428184, i: 85.8275881397  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 9, sum: 13990, pop: 1269467, i: 110.203731172  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 10, sum: 3907, pop: 639369, i: 61.1071228039  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 13, sum: 2412, pop: 508281, i: 47.4540657628  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 5, sum: 3556, pop: 550688, i: 64.5737695392  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 3, sum: 10712, pop: 1122473, i: 95.4321395704  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 6, sum: 7444, pop: 820219, i: 90.7562492456  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 12, sum: 1935, pop: 519211, i: 37.2680856145  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4
+[2012-10-16 16-51-49] name: 11, sum: 1850, pop: 595010, i: 31.0919144216  @  http://localhost/MK/?do=loadMapValuesStyles&zoomLevel=1&table=1rgNjSoo31Nvr9Ka7d6Jj5sK9WB3TObhr8w78Ptk&yearFrom=2011&monthFrom=10&yearTo=2012&monthTo=9&crimeTypes=4

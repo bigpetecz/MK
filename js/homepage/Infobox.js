@@ -92,14 +92,16 @@ var InfoBox = {
         
         self.total.html( addSpaces( data.com ) );
         self.officers.html( addSpaces( data.officers ) );
-        
-        var damage = addSpaces( data.damage ) + " mil. Kč" ;
-        if( FilterBox.allChecked ) self.damage.html( damage );
-        else {
+        log('k');
+        var damage = addSpaces( data.damage ) + " Kč" ;
+      //  if( FilterBox.allChecked ) 
+            
+            self.damage.html( damage );
+        /*else {
         	//cannot display data
         	self.toggleNaNForDamage( true );
 		}
-
+*/
 		//store value
 		self.damageValue = damage;
 
